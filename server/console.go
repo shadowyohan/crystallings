@@ -5,8 +5,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/mitchellh/colorstring"
-
 	"github.com/pterodactyl/wings/config"
 	"github.com/pterodactyl/wings/system"
 )
@@ -33,7 +31,6 @@ func (s *Server) PublishConsoleOutputFromDaemon(data string) {
         formattedOutput,
     )
 }
-
 
 // Throttler returns the throttler instance for the server or creates a new one.
 func (s *Server) Throttler() *ConsoleThrottle {
