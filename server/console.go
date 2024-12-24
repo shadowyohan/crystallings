@@ -18,11 +18,19 @@ var appNameSync sync.Once
 // PublishConsoleOutputFromDaemon sends output to the server console formatted
 // to appear correctly as being sent from Wings.
 func (s *Server) PublishConsoleOutputFromDaemon(data string) {
+    // ANSI escape-коды для цветов
+    const (
+        Reset      = "\033[0m"
+        White      = "\033[97m"
+        Purple     = "\033[95m"       // Основной фиолетовый
+        LightPink  = "\033[38;5;219m" // Розовый (для "System")
+        LightPurple = "\033[38;5;225m" // Светло-фиолетовый (для data)
+    )
 
-    // Форматирование строки с желаемыми цветами
+    // Форматирование строки с использованием ANSI-кодов
     formattedOutput := fmt.Sprintf(
-        "(#ffffff)[(#c957ff)CrystallSpace (#df9bff)System(#ffffff)] (#cda3ff)%s",
-        data,
+        "%s[%sCrystallSpace %sSystem%s] %s%s%s%s",
+        White, Purple, LightPink, White, LightPurple, data, Reset, White,
     )
 
     // Публикация события с отформатированным текстом
@@ -31,6 +39,7 @@ func (s *Server) PublishConsoleOutputFromDaemon(data string) {
         formattedOutput,
     )
 }
+
 
 // Throttler returns the throttler instance for the server or creates a new one.
 func (s *Server) Throttler() *ConsoleThrottle {
