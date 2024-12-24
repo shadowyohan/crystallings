@@ -424,17 +424,23 @@ func initLogging() {
 // Prints the wings logo, nothing special here!
 func printLogo() {
 	fmt.Printf(colorstring.Color(`
-                     ____
-__ [blue][bold]Pterodactyl[reset] _____/___/_______ _______ ______
-\_____\    \/\/    /   /       /  __   /   ___/
-   \___\          /   /   /   /  /_/  /___   /
-        \___/\___/___/___/___/___    /______/
-                            /_______/ [bold]%s[reset]
+Pterodactyl Wings
+ ▄▄· ▄▄▄   ▄· ▄▌.▄▄ · ▄▄▄▄▄ ▄▄▄· ▄▄▌  ▄▄▌  ▪   ▐ ▄  ▄▄ • .▄▄ · 
+▐█ ▌▪▀▄ █·▐█▪██▌▐█ ▀. •██  ▐█ ▀█ ██•  ██•  ██ •█▌▐█▐█ ▀ ▪▐█ ▀. 
+██ ▄▄▐▀▀▄ ▐█▌▐█▪▄▀▀▀█▄ ▐█.▪▄█▀▀█ ██▪  ██▪  ▐█·▐█▐▐▌▄█ ▀█▄▄▀▀▀█▄
+▐███▌▐█•█▌ ▐█▀·.▐█▄▪▐█ ▐█▌·▐█ ▪▐▌▐█▌▐▌▐█▌▐▌▐█▌██▐█▌▐█▄▪▐█▐█▄▪▐█
+·▀▀▀ .▀  ▀  ▀ •  ▀▀▀▀  ▀▀▀  ▀  ▀ .▀▀▀ .▀▀▀ ▀▀▀▀▀ █▪·▀▀▀▀  ▀▀▀▀ 
+made by crystall.space | Version: %s
 
-Copyright © 2018 - %d Dane Everitt & Contributors
+Copyright © 2024 - %d shadowyohan & crystall.space team
 
-Website:  https://pterodactyl.io
- Source:  https://github.com/pterodactyl/wings
+Original Wings/Pterodactyl Copyright © 2018 - %d Dane Everitt & Contributors
+
+Website:  https://crystall.space
+Source:  https://github.com/shadowyohan/crystallings
+
+Pterodactyl Website:  https://pterodactyl.io
+Original Wings Source:  https://github.com/pterodactyl/wings
 License:  https://github.com/pterodactyl/wings/blob/develop/LICENSE
 
 This software is made available under the terms of the MIT license.
@@ -458,3 +464,4 @@ for this issue, it will be closed.[reset]
 `), config.DefaultLocation)
 	os.Exit(1)
 }
+
