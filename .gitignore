@@ -52,3 +52,4 @@ debug
 *.pprof
 *.pdf
 pprof.*
+crystallings_linux_amd64
