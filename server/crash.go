@@ -51,7 +51,7 @@ func (s *Server) handleServerCrash() error {
 	if s.Environment.State() != environment.ProcessOfflineState || !s.Config().CrashDetectionEnabled {
 		if !s.Config().CrashDetectionEnabled {
 			s.Log().Debug("server triggered crash detection but handler is disabled for server process")
-			s.PublishConsoleOutputFromDaemon("Автоматический перезапуск отменён, обнаружение ошибок отключено для этого процесса.")
+			s.PublishConsoleOutputFromDaemon("Aborting automatic restart, crash detection is disabled for this instance.")
 		}
 
 		return nil
@@ -69,9 +69,9 @@ func (s *Server) handleServerCrash() error {
 		return nil
 	}
 
-	s.PublishConsoleOutputFromDaemon("---------- Обнаружен процесс сервера в состоянии сбоя! ----------")
-	s.PublishConsoleOutputFromDaemon(fmt.Sprintf("Код завершения: %d", exitCode))
-	s.PublishConsoleOutputFromDaemon(fmt.Sprintf("Недостаточно памяти: %t", oomKilled))	
+	s.PublishConsoleOutputFromDaemon("---------- Detected server process in a crashed state! ----------")
+	s.PublishConsoleOutputFromDaemon(fmt.Sprintf("Exit code: %d", exitCode))
+	s.PublishConsoleOutputFromDaemon(fmt.Sprintf("Out of memory: %t", oomKilled))
 
 	c := s.crasher.LastCrashTime()
 	timeout := config.Get().System.CrashDetection.Timeout
@@ -81,7 +81,7 @@ func (s *Server) handleServerCrash() error {
 	//
 	// If timeout is set to 0, always reboot the server (this is probably a terrible idea, but some people want it)
 	if timeout != 0 && !c.IsZero() && c.Add(time.Second*time.Duration(config.Get().System.CrashDetection.Timeout)).After(time.Now()) {
-		s.PublishConsoleOutputFromDaemon("Отмена автоматического перезапуска, последний сбой произошёл менее чем " + strconv.Itoa(timeout) + " секунд назад.")
+		s.PublishConsoleOutputFromDaemon("Aborting automatic restart, last crash occurred less than " + strconv.Itoa(timeout) + " seconds ago.")
 		return &crashTooFrequent{}
 	}
 

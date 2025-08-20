@@ -432,7 +432,7 @@ Pterodactyl Wings
 ·▀▀▀ .▀  ▀  ▀ •  ▀▀▀▀  ▀▀▀  ▀  ▀ .▀▀▀ .▀▀▀ ▀▀▀▀▀ █▪·▀▀▀▀  ▀▀▀▀ 
 made by crystall.space | Version: %s
 
-Copyright © 2024 - %d shadowyohan & crystall.space team
+Copyright © 2024 - %d shadowyohan & crystall.space
 
 Original Wings/Pterodactyl Copyright © 2018 - %d Dane Everitt & Contributors
 
@@ -445,14 +445,14 @@ License:  https://github.com/pterodactyl/wings/blob/develop/LICENSE
 
 This software is made available under the terms of the MIT license.
 The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.%s`), system.Version, time.Now().Year(), "\n\n")
+in all copies or substantial portions of the Software.`), system.Version, time.Now().Year(), time.Now().Year())
 }
 
 func exitWithConfigurationNotice() {
 	fmt.Printf(colorstring.Color(`
 [_red_][white][bold]Error: Configuration File Not Found[reset]
 
-Wings was not able to locate your configuration file, and therefore is not
+Crystallings was not able to locate your configuration file, and therefore is not
 able to complete its boot process. Please ensure you have copied your instance
 configuration file into the default location below.
 
