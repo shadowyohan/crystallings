@@ -1,5 +1,5 @@
 param(
-    [string]$Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWYtMkKm8mCldjR2F4O__Q_1cJsFvUb28-nTDGo3ZJl2I8CQJPAGliHSjw&s=10"
+    [string]$Url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQHalmNIOZsUBY-dMOAJQVnn1-af_4E5o9Aq62Z68ZziQgvhc8ZHtsp0MM&s=10"
 )
 
 $path = "$env:USERPROFILE\Pictures\wallpaper.jpg"
